@@ -1,7 +1,7 @@
 ---DAY 1
 -- SETUP BACKEND
 - npm i express mongoose dotenv cloudinary cors @clerk/express socket.io
-- npm i -D nodemon
+- npm i -D nodemon // để không phải reset server mỗi khi thay đổi code
 - Go to package.json => add line {"type": "module"}
 - SETUP MONGOOSE DB {MONGOOSE_URL}
 - CREATE DB.JS
