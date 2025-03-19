@@ -13,3 +13,6 @@
 ---DAY 2
 --SETUP CLOUDINARY { TO STORE FILE ON CLOUD }
 - npm install express-fileupload
+
+-- SEED DATA
+- GO TO PACKAGE.JSON => ADD SCRIPT

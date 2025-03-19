@@ -1,4 +1,6 @@
 ---DAY 1
+---- Fast Creating default constance => type rafce 
+
 -- SET UP FRONTEND
 - run npm create vite @latest . ( . mean that create vite project at current location)
 - npm install
@@ -26,3 +28,6 @@
 
 --INSTALL LUCIDE PACKAGE FOR REACTJS
 - npm i lucide-react
+
+-- INSTALL ZUSTAND TO FETCHING DATA
+- npm install zustand
