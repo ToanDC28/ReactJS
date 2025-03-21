@@ -20,3 +20,12 @@ export interface Album {
     createdAt: Date,
     updatedAt: Date
 }
+
+export interface User {
+    _id: string,
+    fullname: string,
+    imageUrl: string,
+    createdAt: Date,
+    updatedAt: Date,
+    clerkId: string
+}
