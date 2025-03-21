@@ -5,10 +5,12 @@ import { create } from "zustand";
 interface MusicStore {
     albums: Song[];
     songs: Album[];
+    currentAlbum: Album | null;
     isLoading: boolean;
     error: string | null;
     fetchAlbums: () => Promise<void>;
     fetchSongs: () => Promise<void>;
+    fetchAlbumById: (id: string) => Promise<void>;
 }
 
 export const useMusicStore = create<MusicStore>((set) => ({
@@ -16,6 +18,7 @@ export const useMusicStore = create<MusicStore>((set) => ({
     songs: [],
     isLoading: false,
     error: null,
+    currentAlbum: null,
     fetchAlbums: async () => {
         set({ isLoading: true, error: null });
         try {
@@ -38,6 +41,19 @@ export const useMusicStore = create<MusicStore>((set) => ({
         } catch (error:any) {
             set({ error: error.response.data.message });
             console.log("Error in fetchSongs: ", error);
+        }finally{
+            set({ isLoading: false });
+        }
+    },
+    fetchAlbumById: async (id: string) => {
+        set({ isLoading: true, error: null });
+        try {
+            const response = await axiosInstance.get(`/albums/${id}`);
+            const data = await response.data;
+            set({ currentAlbum: data });
+        } catch (error:any) {
+            set({ error: error.response.data.message });
+            console.log("Error in fetchAlbumById: ", error);
         }finally{
             set({ isLoading: false });
         }
