@@ -3,12 +3,9 @@ import { Outlet } from "react-router-dom"
 import LeftSideBar from "./component/LeftSizeBar"
 import FriendActivity from "./component/FriendActivity";
 import AudioPlayer from "./component/AudioPlayer";
+import PlayBackControls from "./component/PlayBackControls"
 const MainLayout = () => {
   const isMobile = false;
-
-
-
-
 
   return <div className="h-screen bg-black text-white flex flex-col">
     <ResizablePanelGroup 
@@ -30,6 +27,8 @@ const MainLayout = () => {
             <FriendActivity />
         </ResizablePanel>
     </ResizablePanelGroup>
+
+    <PlayBackControls />
   </div>
 }
 

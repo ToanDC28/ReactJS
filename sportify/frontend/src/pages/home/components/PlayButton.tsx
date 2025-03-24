@@ -3,16 +3,15 @@ import { usePlayerStore } from "@/stores/usePlayerStore"
 import { Song } from "@/types"
 import { Pause, PlayIcon } from "lucide-react";
 
-const PlayButton = ({song}: {song: Song}) => {
-    const {currentSong, isPlaying, setCurrentSong, togglePlay} = usePlayerStore();
-    const isCurrentSong = currentSong?._id === song._id;
-
+const PlayButton = ({songs, index} : {songs: Song[], index: number}) => {
+    const {currentSong, isPlaying, setCurrentSong, togglePlay, initializeQueue} = usePlayerStore();
+    const isCurrentSong = currentSong?._id === songs[index]._id;
     const handlePlay = () => {
-        console.log({song})
+        initializeQueue(songs);
         if(isCurrentSong){
             togglePlay();
         }else{
-            setCurrentSong(song);
+            setCurrentSong(songs[index]);
         }
     }
   return (

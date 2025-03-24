@@ -31,7 +31,7 @@ const SectionGrid = ({ title, songs, isLoading }: Props) => {
                             <img src={song.imageUrl} alt={song.title} className="size-full object-cover transition-transform duration-300 group-hover:scale-105" />
                             {/* TODO: Add play button*/}
                         </div>
-                        <PlayButton song={song} />
+                        <PlayButton songs={songs} index={index}/>
                     </div>
                     <h3 className="font-medium mb-2 truncate">
                         {song.title}
