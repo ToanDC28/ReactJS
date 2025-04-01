@@ -3,7 +3,7 @@ import { getAlbumById, getAllAlbum } from "../controller/album.controller.js";
 
 const router = Router();
 
-router.get("/", getAllAlbum);
+router.get("/:pageNum&:pageSize", getAllAlbum);
 router.get("/:id", getAlbumById);
 
 

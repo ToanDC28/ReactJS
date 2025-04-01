@@ -29,3 +29,22 @@ export interface User {
     updatedAt: Date,
     clerkId: string
 }
+
+export interface Status {
+    songs: number,
+    albums: number,
+    users: number,
+    uniqueArtist: number
+}
+
+export interface PaginationRequest {
+    pageNumber: number,
+    pageSize: number
+}
+
+export interface NewSongRequest {
+    title: string,
+    duration: string,
+    artist: string,
+    albumId: string
+}

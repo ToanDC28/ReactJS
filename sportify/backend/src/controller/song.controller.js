@@ -3,7 +3,8 @@ export const getAllSongs = async (req, res, next) => {
     try {
         // -1 = descending => newest -> oldest
         // 1 = ascending => oldest -> newest
-        const songs = await Song.find().sort({ createdAt: -1 }); // sort by createdAt (the newest one is the first one)
+        const { pageNum, pageSize } = req.params;
+        const songs = await Song.find().sort({ createdAt: -1 }).skip((pageNum - 1) * pageSize).limit(pageSize); // sort by createdAt (the newest one is the first one)
         res.status(200).json(songs);
     } catch (error) {
         console.log("Error when get all song", error);

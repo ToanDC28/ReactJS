@@ -2,7 +2,8 @@ import { Album } from '../models/album.model.js';
 
 export const getAllAlbum = async (req, res, next) => {
     try {
-        const albums = await Album.find();
+        const { pageNum, pageSize } = req.params;
+        const albums = await Album.find().skip((pageNum - 1) * pageSize).limit(pageSize);
         res.status(200).json(albums);
     } catch (error) {
         console.log("Error when get all album", error);

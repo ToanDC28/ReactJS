@@ -12,7 +12,7 @@ router.get("/check", checkAdmin);
 
 router.post("/song/create", createSong)
 
-router.delete("/song/:id", deleteSong);
+router.delete("/song/delete/:id", deleteSong);
 
 router.post("/album/create", createAlbum);
 
